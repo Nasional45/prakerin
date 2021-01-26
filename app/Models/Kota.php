@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Provinsi;
+use App\Model\Kecamatan;
 class Kota extends Model
 {
     public function Provinsi(){

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Kecamatan;
 use App\Models\Desa;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class DesaController extends Controller
      */
     public function index()
     {
-        //
+        $desa = Desa::with('kecamatan')->get();
+        return view('admin.desa.index',compact('desa'));
     }
 
     /**
@@ -24,7 +25,8 @@ class DesaController extends Controller
      */
     public function create()
     {
-        //
+         $kecamatan = Kecamatan::all();
+        return view('admin.desa.create',compact('kecamatan'));
     }
 
     /**
@@ -35,7 +37,11 @@ class DesaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $desa = new Desa();
+        $desa->id_kecamatan =$request->id_kecamatan;
+        $desa->nama_desa =$request->nama_desa;
+        $desa->save();
+        return redirect()->route('desa.index')->with(['succes'=>'Data Berhasil diinput']);   
     }
 
     /**
@@ -44,9 +50,10 @@ class DesaController extends Controller
      * @param  \App\Models\Desa  $desa
      * @return \Illuminate\Http\Response
      */
-    public function show(Desa $desa)
+    public function show($id)
     {
-        //
+        $desa = Desa::findOrFail($id);
+        return view('admin.desa.show',compact('desa'));
     }
 
     /**
@@ -55,9 +62,11 @@ class DesaController extends Controller
      * @param  \App\Models\Desa  $desa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Desa $desa)
+    public function edit($id)
     {
-        //
+        $kecamatan = Kecamatan::all();
+        $desa = Desa::findOrFail($id);
+        return view('admin.desa.edit',compact('desa','kecamatan'));
     }
 
     /**
@@ -67,9 +76,13 @@ class DesaController extends Controller
      * @param  \App\Models\Desa  $desa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Desa $desa)
+    public function update(Request $request, $id)
     {
-        //
+        $desa = Desa::findOrFail($id);
+        $desa->id_kecamatan =$request->id_kecamatan;
+        $desa->nama_desa =$request->nama_desa;
+        $desa->save();
+        return redirect()->route('desa.index')->with(['succes'=>'Data <b>',$desa->nama_desa,'</b>Data Berhasil diubah']); 
     }
 
     /**
@@ -78,8 +91,10 @@ class DesaController extends Controller
      * @param  \App\Models\Desa  $desa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Desa $desa)
+    public function destroy($id)
     {
-        //
+        $desa = Desa::findOrFail($id);
+        $desa->delete();
+        return redirect()->route('desa.index')->with(['success'=>'Data <b>',$desa->nama_desa,'</b> Berhasil dihapus']);
     }
 }

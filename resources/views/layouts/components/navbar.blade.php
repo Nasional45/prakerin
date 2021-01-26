@@ -243,8 +243,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-            </li>
+                          </li>  
           </ul>
         </div>
       </div>

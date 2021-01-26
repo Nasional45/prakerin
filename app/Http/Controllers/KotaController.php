@@ -67,7 +67,7 @@ class KotaController extends Controller
     {
         $provinsi = Provinsi::all();
         $kota = Kota::findOrFail($id);
-        return view('admin.kota.edit',compact('provinsi'));
+        return view('admin.kota.edit',compact('kota','provinsi'));
     }
 
     /**
@@ -77,14 +77,14 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kota $kota)
+    public function update(Request $request, $id)
     {
-        $kota = new Kota();
+        $kota = Kota::findOrFail($id);
         $kota->id_provinsi =$request->id_provinsi;
         $kota->kode_kota =$request->kode_kota;
         $kota->nama_kota =$request->nama_kota;
         $kota->save();
-        return redirect()->route('kota.index')->with(['succes'=>'Data <b>',$kota->nama_kota,'</b> Berhasil diinput']);
+        return redirect()->route('kota.index')->with(['succes'=>'Data <b>',$kota->nama_kota,'</b> Berhasil diubah']);
     }
 
     /**
