@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Model\Desa;
+use App\Model\Kasus;
 class Rw extends Model
 {
     public function Desa(){
-        return $this->belongsTo('App\Model\Desa','id_desa');
+        return $this->belongsTo('App\Models\Desa','id_desa');
     }
     public function Kasus(){
-        return $this->hasMany('App\Model\Kasus','id_kasus');
+        return $this->hasMany('App\Models\Kasus','id_kasus');
     }
 }

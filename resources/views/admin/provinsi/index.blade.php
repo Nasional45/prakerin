@@ -30,8 +30,8 @@
             <td>{{$data->kode_provinsi}}</td>
             <td>{{$data->nama_provinsi}}</td>
             <td>
-            <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-warning">Edit</a>
-            <a href="{{route('provinsi.show',$data->id)}}" class="btn btn-warning">Show</a>
+            <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{route('provinsi.show',$data->id)}}" class="btn btn-info">Show</a>
             <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Delete</button>
             </form>
             </td>
