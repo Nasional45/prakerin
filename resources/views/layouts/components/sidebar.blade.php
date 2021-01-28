@@ -53,20 +53,20 @@
                 <span class="nav-link-text">Kasus</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade</span>
               </a>
             </li>
           </ul>
-          <!-- Divider -->
+           Divider 
           <hr class="my-3">
-          <!-- Heading -->
+           Heading
           <h6 class="navbar-heading p-0 text-muted">
             <span class="docs-normal">Documentation</span>
           </h6>
-          <!-- Navigation -->
+           Navigation 
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
@@ -98,7 +98,7 @@
                 <span class="nav-link-text">Upgrade to PRO</span>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>

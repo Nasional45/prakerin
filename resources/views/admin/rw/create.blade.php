@@ -20,6 +20,9 @@
                <div class="form-group">
                <label for="">Rw</label>
                <input type="text" name="nama_rw" class="form-control" required>
+               @if($errors->has('nama_rw'))
+               <span class="text-danger">{{ $errors->first('nama_rw')}}</span>
+               @endif
                </div>
                <button type="submit" class="btn btn-primary btn-black">Simpan</button>
                </div>

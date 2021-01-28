@@ -37,6 +37,9 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_rw' => 'required|unique:rws|max:255',
+        ]);
         $rw = new Rw();
         $rw->id_desa =$request->id_desa;
         $rw->nama_rw =$request->nama_rw;
