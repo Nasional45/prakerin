@@ -14,7 +14,7 @@ class KasusController extends Controller
      */
     public function index()
     {
-        $kasus = Kasus::with('rw')->get();
+        $kasus = Kasus::with('rw.desa.kecamatan.kota.provinsi')->get();
         return view('admin.kasus.index',compact('kasus'));
     }
 
@@ -39,6 +39,7 @@ class KasusController extends Controller
     {
         $kasus = new Kasus();
         $kasus->id_rw =$request->id_rw;
+        $kasus->reaktif   =$request->reaktif;
         $kasus->positif   =$request->positif;
         $kasus->sembuh    =$request->sembuh;
         $kasus->meninggal =$request->meninggal;
@@ -68,8 +69,10 @@ class KasusController extends Controller
     public function edit($id)
     {
         $rw = Rw::all();
-        $kasus = Rw::findOrFail($id);
-        return view('admin.kasus.edit',compact('kasus','rw'));
+        $kasus = Kasus::findOrFail($id);
+        $selected = $kasus->rw->pluck('id')->toArray();
+        return view('admin.kasus.edit',compact('kasus','rw','selected'));
+        
     }
 
     /**
@@ -83,6 +86,7 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $kasus->id_rw =$request->id_rw;
+        $kasus->reaktif   =$request->reaktif;
         $kasus->positif   =$request->positif;
         $kasus->sembuh    =$request->sembuh;
         $kasus->meninggal =$request->meninggal;

@@ -5,7 +5,7 @@
         <div class ="col-md-12">
             <div class ="card">
                <div class ="card-header">
-                Data Rw
+                Data Kasus
                 <a href="{{route('kasus.create')}}"
                 class="btn btn-primary float-right">
                 Tambah
@@ -16,21 +16,28 @@
             <table class="table">
             <tr>
             <th>No</th>
+            <th>Lokasi</th>
             <th>Rw</th>
+            <th>Reaktif</th>
             <th>Positif</th>
             <th>Sembuh</th>
             <th>Meninggal</th>
             <th>Tanggal</th>
             <th>Aksi</th>
-            </tr>
+            </tr>   
             @php $no=1; @endphp
             @foreach($kasus as $data)
             <form action="{{route('kasus.destroy', $data->id)}}" method="POST">
             @method('DELETE')
             @csrf
             <tr>
-            <td>{{$no++}}</td>
+            <th scope="row">{{$no++}}</th>
+            <td>Provinsi : {{$data->rw->desa->kecamatan->kota->provinsi->nama_provinsi}}<br>
+            Kota : {{$data->rw->desa->kecamatan->kota->nama_kota}}<br>
+            Kecamatan : {{$data->rw->desa->kecamatan->nama_kecamatan}}<br>
+            Desa : {{$data->rw->desa->nama_desa}}</td>
             <td>{{$data->rw->nama_rw}}</td>
+            <td>{{$data->reaktif}}</td>
             <td>{{$data->positif}}</td>
             <td>{{$data->sembuh}}</td>
             <td>{{$data->meninggal}}</td>
