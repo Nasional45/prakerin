@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ProvinsiController;
 use App\Http\Controllers\Api\ApiController;
 
 
@@ -29,8 +28,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 //ROUTE ApiController
+// Data Global
+Route::get('global/', [ApiController::class, 'global']);
+
 // Data Indonesia
 Route::get('indonesia/', [ApiController::class, 'indonesia']);
+
 //Data Provinsi
 Route::get('provinsi1/',[ApiController::class, 'provinsi1']);
 Route::get('provinsi2/{id}',[ApiController::class, 'provinsi2']);
