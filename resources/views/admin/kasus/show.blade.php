@@ -14,11 +14,6 @@
                             <label>Provinsi</label>
                             <input type="text" value="{{$kasus->rw->desa->kecamatan->kota->provinsi->nama_provinsi}}" class="form-control" readonly>
                         </div>
-                        <div class="col-md-6">
-                            <label>Total Reaktif</label>
-                            <input type="text" value="{{$kasus->reaktif}}" class="form-control" readonly>
-                        </div>
-                    </div>
                     <div class="form-group row ">
                         <div class="col-md-6">
                             <label>Kota / Kabupaten</label>

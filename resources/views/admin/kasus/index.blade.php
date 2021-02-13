@@ -23,7 +23,6 @@
                                             <th>No</th>
                                             <th >Lokasi</th>
                                             <th>RW</th>
-                                            <th>Total Reaktif</th>
                                             <th>Total Positif</th>
                                             <th>Total Sembuh</th>
                                             <th>Total Meninggal</th>
@@ -43,7 +42,6 @@
                                             Kecamatan : {{$data->rw->desa->kecamatan->nama_kecamatan}}<br>
                                             Kota / Desa : {{$data->rw->desa->nama_desa}}</td>
                                             <td>{{$data->rw->nama_rw}}</td>
-                                            <td>{{$data->reaktif}}</td>
                                             <td>{{$data->positif}}</td>
                                             <td>{{$data->sembuh}}</td>
                                             <td>{{$data->meninggal}}</td>

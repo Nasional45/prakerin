@@ -39,9 +39,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../admin/kelurahan">
+              <a class="nav-link" href="../admin/desa">
                 <i class="ni ni-pin-3 text-default"></i>
-                <span class="nav-link-text">Kelurahan</span>
+                <span class="nav-link-text">Desa</span>
               </a>
             </li>
             <li class="nav-item">
@@ -51,7 +51,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../admin/jumlahkasus">
+              <a class="nav-link" href="../admin/kasus">
                 <i class="ni ni-pin-3 text-red"></i>
                 <span class="nav-link-text">Kasus</span>
               </a>

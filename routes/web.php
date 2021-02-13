@@ -8,6 +8,8 @@ use App\Http\Controllers\DesaController;
 use App\Http\Controllers\RwController;
 use App\Http\Controllers\KasusController;
 
+use App\Http\Controllers\FrontendController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +21,7 @@ use App\Http\Controllers\KasusController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -44,6 +46,11 @@ Route::group(['prefix' => 'admin', 'middleware' =>['auth']], function (){
     Route::resource('kasus', KasusController::class);            
          
 }); 
+Route::get('dashboard',function () {
+    return view('dashboard.index');
+});
+
+Route::resource('/', FrontendController::class);
 
     
     // route::get('kota', function(){

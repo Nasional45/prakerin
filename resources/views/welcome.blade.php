@@ -62,17 +62,17 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-          <!-- <h1>CORONA VIRUS</h1> -->
+           <!-- <h1>CORONA VIRUS</h1> 
         </div>
       </div>
     </div>
-    <!-- /container -->
+     container  -->
   </div>
 
   <section id="works"></section>
   <div class="container">
     <div class="row centered mt mb">
-      <h1>My Portfolio</h1>
+      <!-- <h1>My Portfolio</h1>
 
       <div class="col-lg-4 col-md-4 col-sm-4 gallery">
         <a href="works.html"><img src="assets/img/portfolio/folio01.png" class="img-responsive"></a>
@@ -127,16 +127,16 @@
         &copy; Copyrights <strong>KAWAL CORONA</strong>. All Rights Reserved
       </p>
       <div class="credits">
-        <!--
+      
           You are NOT allowed to delete the credit link to TemplateMag with free version.
           You can delete the credit link only if you bought the pro version.
           Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/instant-bootstrap-personal-template/
           Licensing information: https://templatemag.com/license/
-        -->
+        
         Created with Instant template by <a href="https://templatemag.com/">TemplateMag</a>
       </div>
     </div>
-  </div>
+  </div> --> -->
   <!-- / copyrights -->
 
   <!-- JavaScript Libraries -->
