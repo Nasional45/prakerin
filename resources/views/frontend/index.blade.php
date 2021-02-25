@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets2/img/favicon.png" rel="ico">
-  <link href="assets2/img/apple-touch-icon.png rel="apple-touch-icon">
+  <link href="assets2/img/favicon.png" rel="icon">
+  <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
  <!-- Google Fonts -->
  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -36,20 +36,7 @@
 </head>
 
 <body>
-<?php
-        $datapositif = file_get_contents("https://api.kawalcorona.com/positif");
-        $positif = json_decode($datapositif, TRUE);
-        $datasembuh = file_get_contents("https://api.kawalcorona.com/sembuh");
-        $sembuh = json_decode($datasembuh, TRUE);
-        $datameninggal = file_get_contents("https://api.kawalcorona.com/meninggal");
-        $meninggal = json_decode($datameninggal, TRUE);
-        $dataid = file_get_contents("https://api.kawalcorona.com/indonesia");
-        $id = json_decode($dataid, TRUE);
-        $dataidprovinsi = file_get_contents("https://api.kawalcorona.com/indonesia/provinsi");
-        $idprovinsi = json_decode($dataidprovinsi, TRUE);
-        $datadunia= file_get_contents("https://api.kawalcorona.com/");
-        $dunia = json_decode($datadunia, TRUE);
-    ?>
+
 
   <!-- ======= Top Bar ======= -->
    <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
@@ -98,7 +85,7 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Admin</a>
+      <!-- <a href="#" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Admin</a> -->
 
     </div>
   </header><!-- End Header -->
@@ -144,7 +131,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL POSITIF</p>
-            <h2 class="mb-0 number-font"><?php echo $positif['value'] ?></h2>
+            <h2 class="mb-0 number-font"><?php echo $posglobal['value'] ?></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/sad-u6e.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -158,7 +145,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL SEMBUH</p>
-            <h2 class="mb-0 number-font"><?php echo $sembuh['value'] ?></h2>
+            <h2 class="mb-0 number-font"><?php echo $semglobal['value'] ?></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/happy-ipM.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -172,7 +159,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL MENINGGAL</p>
-            <h2 class="mb-0 number-font"><?php echo $meninggal['value'] ?></h2>
+            <h2 class="mb-0 number-font"><?php echo $menglobal['value'] ?></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/emoji-LWx.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -186,7 +173,7 @@
           <div class="d-flex">
            <div class="text-white">
             <h2 class="text-white mb-0">INDONESIA</h2>
-            <p class="mb-0 number-font"><?php echo $id[0]['positif'] ?>&nbsp; POSITIF,<?php echo $id[0]['sembuh'] ?>SEMBUH, <?php echo $id[0]['meninggal'] ?>MENINGGAL</p>
+           <p class="text-white mb-0"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b> MENINGGAL</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/indonesia-PZq.png')}}" width="30" height="50" alt="Positif"> </div>
           </div>
@@ -194,8 +181,8 @@
         </div>
        </div><!-- COL END -->
         <div class="col text-center">
-                                        <h6><br><p>Update terakhir : {{ $tanggal }}</p></h6>
-                                    </div> 
+        <h6><br><p>Update terakhir : {{ $tanggal }}</p></h6>
+        </div> 
      <br>
     <!-- ======= About Us Section ======= -->
        <div class="card-header ">
@@ -221,27 +208,20 @@
                                      <th scope="col">Kasus Meninggal</th>
                                      </tr>
                                  </thead>
-                                 <tbody>
-             
-                                 @php
-                                     $no = 1;    
-                                 @endphp
-                                 <?php
-                                     for ($i= 0; $i <= 191; $i++){
-             
-                                     
-                                     ?>
-                                 <tr>
-                                     <td> <?php echo $i+1 ?></td>
-                                     <td> <?php echo $dunia[$i]['attributes']['Country_Region'] ?></td>
-                                     <td> <?php echo $dunia[$i]['attributes']['Confirmed'] ?></td>
-                                     <td><?php echo $dunia[$i]['attributes']['Recovered']?></td>
-                                     <td><?php echo $dunia[$i]['attributes']['Deaths']?></td>
-                                 </tr>
-                                     <?php 
-                                 
-                                 } ?>
-                                 </tbody>
+                                  <tbody>
+                                            @php
+                                            $no = 1;
+                                          @endphp
+                                            @foreach($dunia as $data)
+                                                <tr>     
+                                                  <th>{{$no++ }}</th>
+                                                  <th> <?php echo $data['attributes']['Country_Region'] ?></th>
+                                                  <th> <?php echo number_format($data['attributes']['Confirmed']) ?></th>
+                                                  <th><?php echo number_format($data['attributes']['Recovered'])?></th>
+                                                  <th><?php echo number_format($data['attributes']['Deaths'])?></th>
+                                                </tr>
+                                              @endforeach
+                                        </tbody>
                                  </table>
                                 
                                
@@ -270,20 +250,18 @@
                 <th>Meninggal</th>
               </thead>
               <tbody>
-                @php
-                  $no = 1;   
-                @endphp
-                @foreach ($provinsi as $data)
-                    <tr>
-                      <td>{{$no++}}</td>
-                      <td>{{$data->nama_provinsi}}</td>
-                      <td>{{$data->positif}}</td>
-                      <td>{{$data->sembuh}}</td>
-                      <td>{{$data->meninggal}}</td>
-                    </tr>
-                @endforeach
-                
-            </tbody>
+                                            @php $no=1; @endphp
+                                            @foreach($tampil as $tmp)
+                                   
+                                        <tr>
+                                            <th>{{$no++ }}</th>
+                                            <th>{{$tmp->nama_provinsi}}</th>
+                                            <th>{{number_format($tmp->Positif)}}</th>
+                                            <th>{{number_format($tmp->Sembuh)}}</th>
+                                            <th>{{number_format($tmp->Meninggal)}}</th>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
           </table>
         </div>
       </div>

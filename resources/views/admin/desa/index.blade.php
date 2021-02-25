@@ -30,9 +30,9 @@
             <td>{{$data->kecamatan->nama_kecamatan}}</td>
             <td>{{$data->nama_desa}}</td>
             <td>
-            <a href="{{route('desa.edit',$data->id)}}" class="btn btn-primary">Edit</a>
-            <a href="{{route('desa.show',$data->id)}}" class="btn btn-info">Show</a>
-            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Delete</button>
+            <a href="{{route('desa.edit',$data->id)}}" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a href="{{route('desa.show',$data->id)}}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
+            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </form>
             </td>
             </tr>
