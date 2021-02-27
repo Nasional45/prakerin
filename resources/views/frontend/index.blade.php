@@ -53,7 +53,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="{{url('login')}}">Home</a></h1>
+      <h1 class="logo mr-auto"><a href="">Home</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <h1 class="logo mr-auto"><a href="index.html">Medicio</a></h1> -->
 
@@ -131,7 +131,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL POSITIF</p>
-            <h2 class="mb-0 number-font"><?php echo $posglobal['value'] ?></h2>
+            <h2 class="mb-0 number-font"></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/sad-u6e.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -145,7 +145,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL SEMBUH</p>
-            <h2 class="mb-0 number-font"><?php echo $semglobal['value'] ?></h2>
+            <h2 class="mb-0 number-font"></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/happy-ipM.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -159,7 +159,7 @@
           <div class="d-flex">
            <div class="text-white">
             <p class="text-white mb-0">TOTAL MENINGGAL</p>
-            <h2 class="mb-0 number-font"><?php echo $menglobal['value'] ?></h2>
+            <h2 class="mb-0 number-font"></h2>
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/img/emoji-LWx.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -212,15 +212,7 @@
                                             @php
                                             $no = 1;
                                           @endphp
-                                            @foreach($dunia as $data)
-                                                <tr>     
-                                                  <th>{{$no++ }}</th>
-                                                  <th> <?php echo $data['attributes']['Country_Region'] ?></th>
-                                                  <th> <?php echo number_format($data['attributes']['Confirmed']) ?></th>
-                                                  <th><?php echo number_format($data['attributes']['Recovered'])?></th>
-                                                  <th><?php echo number_format($data['attributes']['Deaths'])?></th>
-                                                </tr>
-                                              @endforeach
+                                           
                                         </tbody>
                                  </table>
                                 
